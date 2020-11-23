@@ -1,0 +1,145 @@
+<div class="grid grid-rows-3 grid-flow-col gap-4">
+  <div class="row-span-3 ...">
+    <header id="header">
+      <h1>{{profileData.nombre}} {{profileData.apellidos}}</h1>
+      <p>Portal Académico de Busqueda</p>
+    </header>
+  </div>
+  <div class="container">
+    <div class="row">
+      <p>Asignatura: {{profileData.asignatura[0].nombre}}</p>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Nombre</th>
+            <th class="text-left" scope="col">Docente</th>
+            <th class="text-left" scope="col">Asistencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-left" scope="row">{{ profileData.asignatura[0].nombre}}</th>
+            <td class="text-left">{{ profileData.asignatura[0].docente}}</td>
+            <td class="text-left">{{ profileData.asignatura[0].asistencia}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Dia</th>
+            <th class="text-left" scope="col">Aula</th>
+            <th class="text-left" scope="col">Hora Inicio</th>
+            <th class="text-left" scope="col">Hora Fin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let horario of profileData.asignatura[0].horario">
+            <th class="text-left" scope="row"> {{horario.dia}}</th>
+            <td class="text-left">{{horario.aula}}</td>
+            <td class="text-left">{{horario.horaInicio}}</td>
+            <td class="text-left">{{horario.horaFin}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Unidad</th>
+            <th class="text-left" scope="col">Evaluación</th>
+            <th class="text-left" scope="col">Fecha Evaluación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let nota of profileData.asignatura[0].nota">
+            <th class="text-left" scope="row">{{nota.unidad}}</th>
+            <td class="text-left">{{nota.evaluacion}}</td>
+            <td class="text-left">{{nota.fechaEvaluacion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <p>Asignatura: {{profileData.asignatura[1].nombre}}</p>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Nombre</th>
+            <th class="text-left" scope="col">Docente</th>
+            <th class="text-left" scope="col">Asistencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="text-left" scope="row">{{ profileData.asignatura[1].nombre}}</th>
+            <td class="text-left">{{ profileData.asignatura[1].docente}}</td>
+            <td class="text-left">{{ profileData.asignatura[1].asistencia}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Dia</th>
+            <th class="text-left" scope="col">Aula</th>
+            <th class="text-left" scope="col">Hora Inicio</th>
+            <th class="text-left" scope="col">Hora Fin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let horario of profileData.asignatura[1].horario">
+            <th class="text-left" scope="row"> {{horario.dia}}</th>
+            <td class="text-left">{{horario.aula}}</td>
+            <td class="text-left">{{horario.horaInicio}}</td>
+            <td class="text-left">{{horario.horaFin}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table ng-dark border rounded border-white text-white">
+        <thead>
+          <tr>
+            <th class="text-left" scope="col">Unidad</th>
+            <th class="text-left" scope="col">Evaluación</th>
+            <th class="text-left" scope="col">Fecha Evaluación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor=" let nota of profileData.asignatura[1].nota">
+            <th class="text-left" scope="row">{{nota.unidad}}</th>
+            <td class="text-left">{{nota.evaluacion}}</td>
+            <td class="text-left">{{nota.fechaEvaluacion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row-span-2 col-span-2 ...">
+    <div></div>
+    <footer id="footer">
+      <ul class="icons">
+        <li>
+          <a href="https://twitter.com/altiuz" class="icon brands fa-twitter"
+            ><span class="label">Twitter</span></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://instagram.com/altiuz_"
+            class="icon brands fa-instagram"
+            ><span class="label">Instagram</span></a
+          >
+        </li>
+        <li>
+          <a href="#" class="icon fa-envelope"
+            ><span class="label">Email</span></a
+          >
+        </li>
+      </ul>
+      <ul class="copyright">
+        <li><a href="/">&copy; 2020 UDA | Universidad De Altiuz</a></li>
+      </ul>
+    </footer>
+  </div>
+</div>

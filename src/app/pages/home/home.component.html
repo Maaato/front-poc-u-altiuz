@@ -1,0 +1,43 @@
+<div class="h-100 d-flex justify-content-center flex-column">
+  <header id="header">
+    <h1>UDA | Universidad De Altiuz</h1>
+    <p>Portal Académico de Busqueda</p>
+  </header>
+
+  <form id="signup-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="RUT"
+      formControlName="rut"
+    />
+    <select name="profile" formControlName="profile">
+      <option hidden value="" selected>&nbsp;&nbsp; Seleccionar Perfil</option>
+      <option [value]="profile" *ngFor="let profile of profiles">
+        &nbsp;&nbsp; {{ profile }}
+      </option>
+    </select>
+    <input type="submit" value="Buscar" />
+  </form>
+</div>
+<footer id="footer">
+  <ul class="icons">
+    <li>
+      <a href="https://twitter.com/altiuz" class="icon brands fa-twitter"
+        ><span class="label">Twitter</span></a
+      >
+    </li>
+    <li>
+      <a href="https://instagram.com/altiuz_" class="icon brands fa-instagram"
+        ><span class="label">Instagram</span></a
+      >
+    </li>
+    <li>
+      <a href="#" class="icon fa-envelope"><span class="label">Email</span></a>
+    </li>
+  </ul>
+  <ul class="copyright">
+    <li><a href="/">&copy; 2020 UDA | Universidad De Altiuz</a></li>
+  </ul>
+</footer>

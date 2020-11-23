@@ -1,0 +1,136 @@
+<header class="header">
+  <div class="container">
+    <div class="teacher-name">
+      <div class="row">
+        <div class="col-sm-9">
+          <h2>
+            <strong>
+              {{ profileData.nombre }} {{ profileData.apellido }}</strong
+            >
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+      <div class="col-sm-6">
+        <div class="button-email">
+          <a>
+            <span class="fa-stack">
+              <em class="fa fa-circle fa-stack-2x"></em>
+              <em class="fa fa-address-card fa-stack-1x fa-inverse"></em></span
+            >RUN: {{ profileData.rut }}</a
+          >
+        </div>
+        <div class="button-email">
+          <a>
+            <span class="fa-stack">
+              <em class="fa fa-circle fa-stack-2x"></em>
+              <em class="fa fa-envelope fa-stack-1x fa-inverse"></em></span
+            >{{ profileData.email }}</a
+          >
+        </div>
+        <div class="button-email">
+          <a>
+            <span class="fa-stack">
+              <em class="fa fa-circle fa-stack-2x"></em>
+              <em class="fa fa-mobile fa-stack-1x fa-inverse"></em></span
+            >{{ profileData.telefono }}</a
+          >
+        </div>
+      </div>
+
+      <div class="col-sm-3 text-center social">
+        <div class="button pull-right" style="cursor: context-menu">
+          {{ profileData.carrera.nombre }} ({{ profileData.carrera.codigo }})
+          <div class="button-email">
+            <select
+              name="profile"
+              (change)="seleccionarSemestre($event.target.value)"
+            >
+              <option hidden value="" selected>
+                &nbsp;&nbsp; Seleccionar Semestre
+              </option>
+              <option value="">Todos</option>
+              <option
+                [value]="i"
+                *ngFor="let semestre of semestresData; let i = index"
+              >
+                Semestre {{ i + 1 }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <ng-container *ngIf="semestreSelected">
+        <table class="table ng-dark border rounded border-white text-white">
+          <thead>
+            <tr>
+              <th class="text-left" scope="col">#</th>
+              <th class="text-left" scope="col">Asignatura</th>
+              <th class="text-left" scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let asignatura of semestreSelected.asignaturas;
+                let i = index
+              "
+            >
+              <th class="text-left" scope="row">{{ i + 1 }}</th>
+              <td class="text-left">{{ asignatura.nombre }}</td>
+              <td class="text-left">{{ asignatura.activo }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <ng-container *ngIf="!semestreSelected">
+        <table
+          class="table ng-dark border rounded border-white text-white"
+          *ngFor="let semestre of semestresData"
+        >
+          <thead>
+            <tr>
+              <th class="text-left" scope="col">#</th>
+              <th class="text-left" scope="col">Asignatura</th>
+              <th class="text-left" scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asignatura of semestre.asignaturas; let i = index">
+              <th class="text-left" scope="row">{{ i + 1 }}</th>
+              <td class="text-left">{{ asignatura.nombre }}</td>
+              <td class="text-left">{{ asignatura.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<footer id="footer">
+  <ul class="icons">
+    <li>
+      <a href="https://twitter.com/altiuz" class="icon brands fa-twitter"
+        ><span class="label">Twitter</span></a
+      >
+    </li>
+    <li>
+      <a href="https://instagram.com/altiuz_" class="icon brands fa-instagram"
+        ><span class="label">Instagram</span></a
+      >
+    </li>
+    <li>
+      <a href="#" class="icon fa-envelope"><span class="label">Email</span></a>
+    </li>
+  </ul>
+  <ul class="copyright">
+    <li><a href="/">&copy; 2020 UDA | Universidad De Altiuz</a></li>
+  </ul>
+</footer>
